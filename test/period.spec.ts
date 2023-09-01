@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 import { variables } from '../variables/variables';
 import { menuPrincipal, principalChild } from '../variables/menu';
 
+//Payroll actualmente no permite borrar periodos y crearlos, pero se puede revisar que aparezca error de 
+//"ya existe el periodo", para que el test funcione debe haber un periodo creado en una fecha x.
+
 test('create period', async({ page }) => {
     await page.goto(variables.payrollTest);
     await page.getByPlaceholder('name@example.com').click();
