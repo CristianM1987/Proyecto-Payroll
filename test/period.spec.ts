@@ -19,26 +19,23 @@ test('create period', async({ page }) => {
     
     await page.locator(menuPrincipal.mainMenu).click();
     await page.locator(principalChild.periodsMenu).click();
-
+    await page.getByRole('link', { name: '+ Create' }).click();
+    await page.reload();
+    await page.getByLabel('Pay Cycle').selectOption('1: 7');
+    await page.getByLabel('Open calendar').click();
+    await page.getByLabel('Next month').click();
+    await page.getByLabel('Next month').dblclick();
+    await page.getByText('1', { exact: true }).click();
+    await page.getByText('30').click();
+    const alreadyexist = page.locator('span:text("There are Periods already registered. Remove for save.")');
+    await expect(alreadyexist).toBeVisible();
+  
     
-
-
-    //await page.getByRole('button', { name: 'Login' }).click();
-    //await page.getByRole('button', { name: 'Main' }).click();
-    //await page.getByRole('link', { name: 'Periods' }).click();
-   // await page.getByRole('link', { name: '+ Create' }).click();
-   // await page.getByLabel('Pay Cycle').selectOption('1: 7');
-   // await page.getByLabel('Open calendar').click();
-    //await page.getByLabel('Next month').click();
-   // await page.getByLabel('Next month').dblclick();
-   // await page.getByText('1', { exact: true }).click();
-    //await page.getByText('30').click();
-    //await page.getByLabel('Open calendar').click();
-    //await page.getByLabel('Next month').click();
-    //await page.getByLabel('1 de diciembre de 2023', { exact: true }).getByText('1').click();
-    //await page.getByText('31', { exact: true }).click();
+    //Si yo quiero crear periodo, elimino utilizando lo de abajo y luego le doy save
+    //await page.locator('i.far.fa-trash-alt').click();
+    //await page.locator('i.far.fa-trash-alt').click();
     //await page.getByRole('button', { name: 'Save' }).click();
-
+    
 
     });
 
