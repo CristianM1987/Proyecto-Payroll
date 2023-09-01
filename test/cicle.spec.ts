@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { variables } from '../variables/variables';
-import { menu } from '../variables/menu';
+import { menuPrincipal, principalChild } from '../variables/menu';
 
 test('create period', async({ page }) => {
     await page.goto(variables.payrollTest);
@@ -17,9 +17,8 @@ test('create period', async({ page }) => {
       throw error;
     }
     
-    await page.locator('xpath=//*[@id="sidebar"]/ul/li[6]/a/span').click();
-    await page.locator('xpath=//*[@id="mainDropdown"]/li[3]/a').click();
-
+    await page.locator(menuPrincipal.mainMenu).click();
+    await page.locator(principalChild.periodsMenu).click();
 
     
 
