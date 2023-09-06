@@ -47,6 +47,22 @@ test('journal employees', async({ page }) => {
     console.log(await download.path());
     // Save downloaded file somewhere
     await download.saveAs('empleado2.pdf');
+    await page.locator('xpath=//html/body/app-root/div/div/app-payment-list/div/div[2]/div/div[2]/button').click();
+    await page.locator('xpath=//html/body/app-root/div/div/app-payment-list/div/div[2]/div/div[2]/div/button[1]').click();
+    console.log(await download.path());
+    await download.saveAs('FilePostPayment_01_00000015_resume.txt'); // Generar archivo de envío
+
+    await page.locator('xpath=//html/body/app-root/div/div/app-payment-list/div/div[2]/div/div[2]/button').click();
+    await page.locator('xpath=//html/body/app-root/div/div/app-payment-list/div/div[2]/div/div[2]/div/button[2]').click();
+    console.log(await download.path());
+    await download.saveAs('PE003390209060000001.txt'); // Generar archivo bancario
+
+    await page.locator('xpath=//html/body/app-root/div/div/app-payment-list/div/div[2]/div/div[2]/button').click();
+    await page.locator('xpath=//html/body/app-root/div/div/app-payment-list/div/div[2]/div/div[2]/div/button[3]').click();
+    console.log(await download.path());
+    await page.getByRole("button", { name: /Download/i}).click();
+    await download.saveAs('reportedepago.xlsx'); // Generar reporte de nómina o reporte de pago
+    await page.waitForTimeout(1000);
 
 
 });
