@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { variables } from '../variables/variables';
 
+//Login exitoso y pruebas negativas
+
 test('ingresar a la página', async ({ page }) => {
   try {
     await page.goto(variables.payrollTest);

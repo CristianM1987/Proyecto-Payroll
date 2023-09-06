@@ -3,6 +3,8 @@ import { test, expect } from '@playwright/test';
 import { variables } from '../variables/variables';
 import { menuPrincipal, principalChild, settingsChild } from '../variables/menu';
 
+//Hace un cambio de lenguaje a español y luego a inglés
+
 test('cambio language', async ({ page }) => {
     await page.goto(variables.payrollTest);
     await page.waitForTimeout(1000);

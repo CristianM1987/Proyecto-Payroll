@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { variables } from '../variables/variables';
 import { menuPrincipal, principalChild } from '../variables/menu';
 
-//el test va a abrir un periodo y luego una nomina de empleados, finalmente, la va a eliminar
+//el test va a abrir el módulo de benefic code, creará uno, lo modificará y lo eliminará
 
 
 test('create benefit Code', async({ page }) => {
