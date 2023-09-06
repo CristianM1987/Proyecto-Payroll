@@ -23,5 +23,11 @@ test('create benefit Code', async({ page }) => {
 
     await page.locator(menuPrincipal.mainMenu).click();
     await page.locator(principalChild.workersMenu).click();
+    const expectedText = 'ALNEL MIESES BAUTISTA MIESES BAUTISTA'; //Empleado
+    await page.waitForSelector(`text="${expectedText}"`); //Espera que aparezca en pantalla, suele tardar 1 segundo
+    const empleadoElement = await page.locator(`text="${expectedText}"`); //Parseo de empleado a text
+    const existeValor = await empleadoElement.isVisible(); //condición
+    // Comprueba si el valor existe
+    await expect(existeValor).toBeTruthy(); //assert
 
 });
