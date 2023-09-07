@@ -32,7 +32,6 @@ test('journal syndicate', async({ page }) => {
     await expect(existeValor).toBeTruthy();
 
     //seleccionar archivos descargables
-    // Start waiting for download before clicking. Note no await.
     const downloadPromise = page.waitForEvent('download');
     await page.locator('xpath=//html/body/app-root/div/div/app-journal-syndicate-details/div/section/div/div/div[2]/div[2]/div/table/tbody/tr[2]/td[9]/button').click();
     const download = await downloadPromise;
@@ -60,6 +59,5 @@ test('journal syndicate', async({ page }) => {
     await download.saveAs('Payroll_report.txt'); // Generar archivo de reporte de payroll
 
     await page.waitForTimeout(1000);
-
 
 });
